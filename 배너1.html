@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<style>
+    @font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+html{
+    scroll-behavior: smooth;
+}
+body,p,h2{margin: 0; font-family: 'Pretendard';}
+body{width: 500px; margin: 0 auto;}
+img{display: block; object-fit: cover; width: 100%;}
+ul{color: #888888; margin: 0px; padding: 0px;}
+header{margin: 0 auto; width: 100%;}
+.banner{width:100%; margin: 0 auto;}
+nav{width: 100%; height: 50px;display: flex; justify-content: space-between; align-items: center;padding: 0px 15px; box-sizing: border-box;
+    position: sticky; top: 0; left: 0;
+    background-color: #fff;}
+nav .logo{
+    width: 200px;
+}
+/* section1 */
+
+.s1{
+    margin-bottom: 50px;
+}
+section .category{
+    position: sticky; left: 0; top: 50px;
+}
+.category{
+    width: 100%; height: 50px; display: flex;
+    padding: 0px 50px; box-sizing: border-box;
+    justify-content: center;
+    position: sticky;
+    z-index: 999;
+    background-color: #fff;
+    color: #888888;
+    font-size: 15px;
+}
+.category p{
+       width: 50%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    color: #888;
+    font-size: 15px;
+    font-weight: 500;
+
+    transition:
+    color .4s ease,
+    font-weight .4s ease;
+
+    cursor: pointer;
+}
+.category p.active{
+    color: #000;
+    font-weight: 700;
+}
+/* 움직이는 밑줄 */
+.category .tab-bar{
+    position: absolute;
+
+    bottom: 0;
+    left: 20%;
+
+    width: 20%;
+    height: 2px;
+
+    background: #000;
+
+    transition: all .6s ease;
+}
+
+/* 써머세일 활성화 시 이동 */
+.category.second .tab-bar{
+    left: 60%;
+}
+.mega{
+    width: 100%;
+    padding: 50px 20px 24px; box-sizing: border-box;
+}
+.mega .mega-text{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.mega .mega-text h2{
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+.mega .mega-text p{
+    font-size: 20px;
+    color: #888888;
+}
+.mega .mega-cate{
+    display: flex;
+    font-size: 13px;
+    gap: 5px;
+}
+.mega .mega-cate p{
+    padding: 6px 14px;
+    background-color: #5d5d5d14;
+    color: #474747;
+    border-radius: 999px;
+    font-weight: 400;
+}
+.mega .mega-cate p:nth-child(1){
+    background-color: #0c0c0c;
+    color: #fafafa;
+}
+.s1 .mega-item-box{
+    width: 100%;
+    display: flex;
+    padding: 0px 20px; box-sizing: border-box;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* margin-bottom: px; */
+}
+.s1 .mega-item-box .mega-item{
+    width: calc((100% - 40px)/3);
+    height: 100%;
+}
+.s1 .mega-item-box .mega-item .img-box{
+    width: 100%;
+    height: 100%;
+    padding: 15px 20px; box-sizing: border-box;
+    align-content: center;
+}
+.s1 .mega-item-box .mega-item .text-box{
+    font-size: 12px;
+}
+.s1 .mega-item-box .mega-item .text-box .title{
+    margin-bottom: 10px;
+}
+.s1 .mega-item-box .mega-item .text-box .price{
+    color: #aaaaaa;
+    text-decoration: line-through;
+    margin-bottom: 5px;
+}
+.s1 .mega-item-box .mega-item .text-box .sale{
+    font-weight: 500;
+}
+.s1 .mega-item-box .mega-item .text-box .sale .persent{
+    color: #f21e1d; margin-right: 10px;
+}
+/* footer */
+footer{
+    width: 100%;
+    background-color: #000000;
+    color: #fff;
+    padding: 40px 0px 80px; box-sizing: border-box;
+    font-size: 13px;
+    font-weight: 200;
+}
+footer .notice{
+    padding: 0px 20px;
+    font-size: 12px;
+}
+footer .notice ul p{
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+footer .notice ul li{
+    margin-left: 12px;
+    margin-bottom: 5px;
+    font-weight: 200;
+    line-height: 1.3;
+}
+</style>
+<body>
+    <div class="wrap">
+        <nav>
+            <i class="fa-solid fa-bars"></i>
+            <div class="logo">
+                <img src="image/logo.png" alt="">
+            </div>
+            <i class="fa-solid fa-bag-shopping"></i>
+        </nav>
+        <header>
+            <div class="banner">
+                <img src="https://filluminate.diskn.com/C895po4ZS6" />
+            </div>
+        </header>
+        <section>
+            <div class="category">
+                <p>메가 세일</p>
+                <p>써머 세일</p>
+                    <!-- 움직이는 바 -->
+                <span class="tab-bar"></span>
+            </div>
+            <div class="mega">
+                <div class="mega-text">
+                    <h2>🔥 이번에 놓치면 끝! 메가 세일</h2>
+                    <p>망설이면 가격 상승! 득템의 기회를 잡아보세요.</p>
+                </div>
+                <div class="mega-cate">
+                    <p>9,900</p>
+                    <p>10,900</p>
+                    <p>11,900</p>
+                    <p>12,900</p>
+                </div>
+            </div>
+            <div class="s1">
+                <div class="mega-item-box">
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div> <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div> <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div> <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div> <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div> <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div> <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div> <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                </div>
+             </div>
+            <div class="s1">
+                <div class="mega">
+                    <div class="mega-text">
+                        <h2>여름 준비의 시작 써머세일</h2>
+                        <p>지금 딱 입기 좋은 상품만 모아 추천해요.</p>
+                    </div>
+                    <div class="mega-cate">
+                     <p>TOP</p>
+                     <p>BOTTOM</p>
+                    </div>
+                </div>
+                <div class="mega-item-box">
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    <div class="mega-item">
+                        <div class="img-box">
+                            <img src="image/e702a7d6fa2ec34b918753a8e5c4e414.jpg" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="title">오버핏 포레스트 체크 셔츠-그린</p>
+                            <p class="price">54,000</p>
+                            <p class="sale"><span class="persent">26%</span>39,900</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        <footer>
+           <div class="notice">
+               <ul><p>유의사항</p>
+                   <li>본 기획전은 26.05.17(일) 00:00 ~ 05.21(목) 23:59까지 진행되며, <br>재고 소진 시 조기 종료될 수 있습니다.</li>
+                   <li>본 기획전 상품은 타 쿠폰 및 추가 할인과 중복 적용이 불가합니다.</li>
+                   <li>본 기획전은 필루미네이트 공식 홈페이지 단독 진행으로, <br>타 플랫폼 및 오프라인 매장에서는 적용되지 않습니다.</li>
+               </ul>
+           </div>
+        </footer>
+    </div>
+</body>
+<script>
+    const category = document.querySelector('.category');
+    const categoryItems = document.querySelectorAll('.category p');
+
+    // 제목 영역 선택
+    const megaTitle = document.querySelectorAll('.mega-text')[0];
+    const summerTitle = document.querySelectorAll('.mega-text')[1];
+
+    const megaSection = document.querySelectorAll('.s1')[0];
+    const summerSection = document.querySelectorAll('.s1')[1];
+
+    // 활성화 함수
+    function activeCategory(index){
+
+        categoryItems.forEach((item, i) => {
+
+            if(i === index){
+                item.classList.add('active');
+            }else{
+                item.classList.remove('active');
+            }
+
+        });
+
+        // 밑줄 이동
+        if(index === 1){
+            category.classList.add('second');
+        }else{
+            category.classList.remove('second');
+        }
+    }
+
+    // 스크롤 감지
+    window.addEventListener('scroll', () => {
+
+        const summerTop = summerSection.getBoundingClientRect().top;
+
+        if(summerTop <= 150){
+            activeCategory(1);
+        }else{
+            activeCategory(0);
+        }
+
+    });
+
+    // 메가세일 클릭
+    categoryItems[0].addEventListener('click', () => {
+
+        window.scrollTo({
+            top: megaTitle.offsetTop - 100,
+            behavior: 'smooth'
+        });
+
+    });
+
+    // 써머세일 클릭
+    categoryItems[1].addEventListener('click', () => {
+
+        window.scrollTo({
+            top: summerTitle.offsetTop - 100,
+            behavior: 'smooth'
+        });
+
+    });
+
+    activeCategory(0);
+</script>
+</html>
